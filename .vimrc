@@ -1,8 +1,7 @@
 "set lazyredraw                 " performance enquanto executa macros
-set ai                          " Auto indent
 set backspace=indent,eol,start  " more powerful backspacing
-set breakindent
-set foldmethod=marker           " folds em /* { { { */ (de acordo com lang.)
+set foldmethod=marker           " folds em /* { { { */ (de acordo com lang)
+
 set history=10                  " keep 50 lines of command line history
 set hlsearch
 set ignorecase
@@ -10,74 +9,70 @@ set incsearch
 set linebreak
 set mouse=a                     " ativar mouse em todos os lugares ([a]ll)
 set nocp
-set number
+
 set relativenumber
-set ruler                       " show the cursor position all the time
-set shiftwidth=4
-set showbreak=│ 
-set si                          " Smart indent
+set number
+set numberwidth=3
+"set ruler                       " show the cursor position all the time
+
 set spelllang=pt_br
+
+set softtabstop=4
+set shiftwidth=4
 set tabstop=4
 set wildmenu                    " autocomplete para :****
 
+set ai                          " Auto indent
+set si                          " Smart indent
+
+set showbreak=· 
+set breakindent
+
+filetype plugin on
 filetype indent on
 
-if has('gui_running')
-  " Make shift-insert work like in Xterm
-  map <S-Insert> <MiddleMouse>
-  map! <S-Insert> <MiddleMouse>
-endif
+syntax enable
 
 noremap ; :
 noremap : ;
-
-noremap B N
-noremap C D
-noremap D H
-noremap E C
-noremap F Q
-noremap H W
-noremap J F
-noremap K M
-noremap L F
-noremap M R
-noremap N L
-noremap Q X
-noremap R K
-noremap S J
-noremap W B
-noremap X E
-noremap b n
-noremap c d
-noremap d h
-noremap e c
-noremap f q
-noremap h w
-noremap j f
-noremap k m
-noremap l f
-noremap m r
-noremap n l
-noremap q x
-noremap r k
-noremap s j
-noremap w b
-noremap x e
-noremap Ç S
-noremap ç s
 
 colo desert
 
 autocmd BufWinLeave *.* mkview
 autocmd BufWinEnter *.* silent loadview
 
-syntax enable
-
 " :W para salvar o arquivo usando sudo
-" para evitar erros de sem permissão
 command W w !sudo tee % > /dev/null
 
-" {{{ LaTeX indents:
-let g:tex_indent_brace = 1
-let g:tex_indent_items = 1
+" REMAP {{{
+
+noremap a a| noremap A A
+noremap b q| noremap B <Nop>
+noremap c d| noremap C D
+noremap d h| noremap D 
+noremap e c| noremap E C
+noremap f f| noremap F F
+noremap g t| noremap G T
+noremap h b| noremap H B
+noremap i i| noremap I I
+noremap j s| noremap J S
+noremap k m| noremap K M
+noremap m g| noremap M G
+noremap n l| noremap N <C-I>
+noremap o o| noremap O O
+noremap p p| noremap P P
+noremap q x| noremap Q X
+noremap r k| noremap R K
+noremap s j| noremap S J
+noremap t r| noremap T R
+noremap u u| noremap U 
+noremap v v| noremap V V
+noremap w e| noremap W E
+noremap x w| noremap X W
+noremap y y| noremap Y Y
+noremap z z| noremap Z Z
+noremap ç n| noremap Ç N
+
+noremap mm gg
+
 " }}}
